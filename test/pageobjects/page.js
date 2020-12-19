@@ -11,7 +11,14 @@ module.exports = class Page {
     * Opens a sub page of the page
     * @param path path of the sub page (e.g. /path/to/page.html)
     */
-    open (path) {
-        return browser.url(`${path}`)
+    open () {
+        return browser.url();
+    }
+
+    get popUpCloseBtn() { return $(".next-dialog-close") }
+
+    closeCampaignPopUp(){
+        this.popUpCloseBtn.waitForEnabled(2000);
+        this.popUpCloseBtn.click();
     }
 }
