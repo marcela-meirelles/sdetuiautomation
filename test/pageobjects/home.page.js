@@ -8,7 +8,7 @@ class Home extends Page {
      * define selectors using getter methods
      */
     open(){
-        super.open();
+        super.open('');
     }
     
     get searchBar() { return $("input#search-key") }
@@ -17,7 +17,7 @@ class Home extends Page {
     searchProduct(product){
         this.searchBar.waitForEnabled(1000);
         this.searchBar.setValue(product);
-        this.searchBarSubmitBtn.click();
+        browser.keys('\uE007'); // removed clicking on element to avoid dealing with campaign iframe
     }
 
 }
