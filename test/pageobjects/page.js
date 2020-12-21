@@ -4,21 +4,25 @@
 */
 module.exports = class Page {
 
-    constructor(){
+    constructor() {
         this.title = 'AliExpress - Online Shopping for Popular Electronics, Fashion, Home & Garden, Toys & Sports, Automobiles and More products - AliExpress';
     }
     /**
     * Opens a sub page of the page
     * @param path path of the sub page (e.g. /path/to/page.html)
     */
-    open () {
-        return browser.url();
+    open(path) {
+        return browser.url(`${path}`)
     }
 
     get popUpCloseBtn() { return $(".next-dialog-close") }
 
-    closeCampaignPopUp(){
-        this.popUpCloseBtn.waitForEnabled(2000);
-        this.popUpCloseBtn.click();
+    closeCampaignPopUp() {
+        try {
+            this.popUpCloseBtn.waitForEnabled(500);
+            this.popUpCloseBtn.click();
+        } catch (error) {
+            console.log('Pop up not displayed')
+        }
     }
 }
