@@ -28,5 +28,5 @@ describe('Search for a product', () => {
         SearchResults.navigateToItem(SearchResults.getItemByListingPlace('2'));
         browser.switchToWindow(browser.getWindowHandles()[1]);
         expect(ItemPage.getItemsQuantity > 0).toBe(true);
-    })
+    });
 });
