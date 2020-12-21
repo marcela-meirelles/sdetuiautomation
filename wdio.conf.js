@@ -55,12 +55,15 @@ exports.config = {
         browserName: 'chrome',
         'goog:chromeOptions':{
             args:[
-                '--disable-gpu',
-                // '-incognito'
+                // '-incognito',
+                '--deny-permission-prompts',
+                '--disable-extensions-http-throttling',
+                '--disable-new-tab',
+                '--disable-dev-shm-usage',
+                '--enable-features=NetworkService,NetworkServiceInProcess'
             ],
-            excludeSwitches :['disable-popup-blocking']
+            excludeSwitches :['disable-popup-blocking'],
         },
-        acceptInsecureCerts: false
         // If outputDir is provided WebdriverIO can capture driver session logs
         // it is possible to configure which logTypes to include/exclude.
         // excludeDriverLogs: ['*'], // pass '*' to exclude all driver session logs
@@ -73,7 +76,7 @@ exports.config = {
     // Define all options that are relevant for the WebdriverIO instance here
     //
     // Level of logging verbosity: trace | debug | info | warn | error | silent
-    logLevel: 'info',
+    logLevel: 'error',
     //
     // Set specific log levels per logger
     // loggers:
@@ -135,7 +138,11 @@ exports.config = {
     // Test reporter for stdout.
     // The only one supported by default is 'dot'
     // see also: https://webdriver.io/docs/dot-reporter.html
-    reporters: ['spec','dot','junit'],
+    reporters: [
+        'spec'
+        // ,'dot'
+        // ,'junit'
+    ],
 
 
     
