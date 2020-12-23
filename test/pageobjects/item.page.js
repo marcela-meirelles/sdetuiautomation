@@ -15,7 +15,9 @@ class ItemPage extends Page {
 
     getItemsQuantity() {
         this.availableProductQuantityElement.waitForDisplayed();
-        return parseInt(this.availableProductQuantityElement.getText());
+        let avProd = this.availableProductQuantityElement.getText();
+        avProd.replace(/\D/g,"");
+        return parseInt(avProd);
     }
 
 }
