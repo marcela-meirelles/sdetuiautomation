@@ -1,23 +1,23 @@
 # dev_i_get ui automation
 
 # Installation guide
-1. First install:
-- Clone repo.
-- Initialize npm project: 
+## First install:
+1. Clone repo.
+1. Initialize npm project: 
     
     $ npm init -y     
     
     to give a standard npm project (remove -y for more options)
 
-- Intall webdriver.io inside project folder: 
+1. Intall webdriver.io inside project folder: 
     
     $ npm install webdriverio
 
-- Install wdio.cli:
+1. Install wdio.cli:
 
     $ npm i --save-dev @wdio/cli
 
-    Generate Configuration File:
+1. Generate Configuration File:
     We'll next want to generate a configuration file that stores all of our WebdriverIO settings. 
     To do that just run the configuration utility:
 
@@ -64,26 +64,20 @@
     That's it! The configurator now installs all required packages for you and creates a config file 
     with the name wdio.conf.js. 
 
-- Overwrite wdio.conf.js with the one in the repo
+1. Overwrite wdio.conf.js with the one in the repo
 
-Run the following installs in your project folder
-- install spec reporter:
+## Run the following installs in your project folder
+1. install spec reporter:
     
     $ npm install @wdio/spec-reporter --save-dev 
 
-- intall junit reporter:
+1. intall junit reporter:
     
     $ npm install @wdio/junit-reporter --save-dev
     
     info: https://webdriver.io/docs/junit-reporter.html
 
-- install allure reporter: 
-    
-    $ npm install @wdio/allure-reporter --save-dev
-    
-    info: https://webdriver.io/docs/allure-reporter.html
-
-- install babel.js: 
+1. install babel.js: 
     
     $ npm install --save-dev @babel/core @babel/cli @babel/preset-env @babel/register
     
@@ -93,6 +87,7 @@ Run the following installs in your project folder
     Make sure your babel.config.js is configured properly. 
     The simplest setup you can use is:
 
+```javascript
         module.exports = {
             presets: [
                 ['@babel/preset-env', {
@@ -102,27 +97,33 @@ Run the following installs in your project folder
                 }]
             ]
         }
+```
 
-if necessary:
-- install jasmine adapter:
+1. if necessary install jasmine adapter:
     
     $ npm install @wdio/jasmine-framework --save-dev
     
     info: https://webdriver.io/docs/frameworks.html
     
+1. install allure reporter: 
+    
+    $ npm install @wdio/allure-reporter --save-dev
+    
+    info: https://webdriver.io/docs/allure-reporter.html
 
-2. Run Tests
-- Open terminal and npm run-script test
+# Run Tests
+1. Open terminal and run 
+    $ npm run-script test
 
-3. Generate reports using allure:
+1. (If Allure is setted) Generate reports using allure:
 - Create an allure-results folder
 - Open terminal at allure-results folder and use the command 'allure serve .' to build the report and launch it in html form
 
-4. RUN EVERYTHING
+1. (If Allure is setted) RUN EVERYTHING
 - npm run-script test && npm run-script report
 
-# file structure
-
+# File structure
+```
 DEVIGET_UI_SUITE
 |- .vscode
 |- allure-report    (future implementation)
@@ -146,7 +147,8 @@ DEVIGET_UI_SUITE
 |- README.md
 |- session_data.json   (future implementation)
 |- wdio.conf.js
-
+```
+## Directory description
 - allure folders will host the report data, when running allure serve . the data will be read from these folders
 - app contains all the page objects in the page object folder and tests in the specs folder
 - helpers contains helper files for the automation, which contain helper methods, like authentication methods and others
@@ -161,7 +163,8 @@ DEVIGET_UI_SUITE
 - session_data.json -> this is not a shared file, due to security considerations this file must be shared between the company through other means. All the data for the test cases is kept in this file, like user names and IDs, organization names, etc.
 - wdio.conf.js -> configuration file for webdriverio. It gets generated when running 'npx wdio config -y' and installs all the required packages. Here we will also set up the test runner, assertion library, hooks, add screenshot paths, set up test capabilities (wether we want to tun them in chrome, firefox or any other browser, even mobile (for mobile we must add appium))
 
-# on babel config files
+# Notes
+## On babel config files
 (This is taken from a nice stackoverflow answer here: https://stackoverflow.com/questions/60288375/when-to-use-babel-config-js-and-babelrc)
 
 From the docs https://babeljs.io/docs/en/config-files#project-wide-configuration
@@ -175,7 +178,7 @@ File-relative configuration
     .babelrc.json files, with the different extensions
     package.json files with a "babel" key
 
-    Babel loads .babelrc.json files, or an equivalent one using the supported extensions, by searching up the directory structure starting from the "filename" being compiled
+Babel loads .babelrc.json files, or an equivalent one using the supported extensions, by searching up the directory structure starting from the "filename" being compiled
 
 Given that information:
 
@@ -199,14 +202,13 @@ Keep in mind this increases complexity with regards to caching, most of the time
 # Contributing
 
 # Future Additions and Improvements
-
-    - session_data.json file as JSON to pass test data
-    - multiple driver options: add firefox and safari (and edge if possible)
-    - running tests in parallel is basically set, but we need more suites to be able to see it (more describe functions)
-    - reporting tool (Allure)
-        - send report by email
-    - Appium for mobile automation
-    - Add CI/CD settings
+- [ ] session_data.json file as JSON to pass test data
+- [ ] multiple driver options: add firefox and safari (and edge if possible)
+- [ ] running tests in parallel is basically set, but we need more suites to be able to see it (more describe functions)
+- [ ] reporting tool (Allure)
+- [ ] send report by email
+- [ ] Appium for mobile automation
+- [ ] Add CI/CD settings
 
 # Author
 Marcela Meirelles: marcemei@gmail.com
