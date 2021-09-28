@@ -1,4 +1,4 @@
-# dev_i_get ui automation
+# UI automation
 
 # Installation guide
 ## First install:
